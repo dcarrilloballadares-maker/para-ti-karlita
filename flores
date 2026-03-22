@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para Karla 💛</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    color: white;
+
+    /* FONDO PRO */
+    background: 
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)),
+    url("fondo.png") no-repeat center center/cover;
+}
+
+/* CONTENEDOR */
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CAJA */
+.caja {
+    width: 140px;
+    height: 140px;
+    background: #facc15;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.caja:hover {
+    transform: scale(1.08);
+}
+
+/* LAZO */
+.lazo {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    background: white;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lazo::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    background: white;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* RAMO */
+.ramo {
+    width: 280px;
+    margin-top: 20px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 1s ease;
+    filter: drop-shadow(0 10px 25px rgba(255, 215, 0, 0.4));
+}
+
+/* MENSAJE */
+.mensaje {
+    margin-top: 20px;
+    font-size: 22px;
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+
+/* ACTIVO */
+.mostrar {
+    opacity: 1;
+    transform: scale(1);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>🎁 Para Karla 💛</h2>
+<p>Haz clic…</p>
+
+<div class="caja" onclick="abrir()">
+    <div class="lazo"></div>
+</div>
+
+<img src="flores.png" class="ramo" id="ramo">
+
+<div class="mensaje" id="mensaje">
+💐 Para ti, Karla…<br><br>
+No sabía cómo darte flores,<br>
+pero quería darte algo especial 💛
+</div>
+
+</div>
+
+<!-- MÚSICA -->
+<iframe id="musica" width="0" height="0"
+src="https://www.youtube.com/embed/slmRkI1xAqk?enablejsapi=1"
+frameborder="0" allow="autoplay"></iframe>
+
+<script>
+function abrir() {
+    document.querySelector(".caja").style.display = "none";
+
+    const ramo = document.getElementById("ramo");
+    const mensaje = document.getElementById("mensaje");
+
+    ramo.classList.add("mostrar");
+    mensaje.classList.add("mostrar");
+
+    // Música
+    const iframe = document.getElementById("musica");
+    iframe.src += "&autoplay=1&loop=1&playlist=slmRkI1xAqk";
+}
+</script>
+
+</body>
+</html>
